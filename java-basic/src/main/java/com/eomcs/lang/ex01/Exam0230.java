@@ -6,3 +6,10 @@ package com.eomcs.lang.ex01;
 //- 또한 클래스 이름과 파일명을 같게 하여 찾기 쉽게 한다.
 
 public class Exam0230 {}
+
+//## 실습
+//1) 컴파일하기
+//- $ javac -d bin/main -encoding UTF-8 src/main/java/com/eomcs/basic/ex01/Exam2_3.java
+//
+//2) 생성된 클래스 파일 확인하기
+//- bin/main/com/eomcs/basic/ex01 디렉토리에 Exam2_3.class가 생성된다.
