@@ -15,6 +15,7 @@ public class Exam0220 {
     // 전화? 1111-2222
     // 1111-2222
     // 이메일? hong@test.com
+    // hong@test.com
     // 나이? 20
     // 20
     // 재직여부? y
@@ -31,6 +32,6 @@ public class Exam0220 {
     System.out.println(keyScan.nextLine());
 
     keyScan.close();
-
   }
 }
+
