@@ -2,7 +2,7 @@ package com.eomcs.pms;
 
 import java.util.Scanner;
 
-public class App {
+public class Appcopy {
 
   public static void main(String[] args) {
     System.out.println("[회원]");
@@ -17,7 +17,7 @@ public class App {
 
     System.out.print("이름? ");
     String name = keyboardScan.nextLine();
--
+
     System.out.print("이메일? ");
     String email = keyboardScan.nextLine();
 
