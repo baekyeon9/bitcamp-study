@@ -56,6 +56,7 @@ public class App2 {
       System.out.println();
 
     }
+
     keyboardScan.close();
 
     System.out.println("--------------------------------");
