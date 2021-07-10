@@ -23,7 +23,6 @@ public class App2 {
     int size = 0;
 
     for (int i = 0; i < LENGTH; i++) {
-
       System.out.print("번호? ");
       no[i] = Integer.parseInt(keyboardScan.nextLine()); 
 
@@ -33,7 +32,7 @@ public class App2 {
       System.out.print("내용? ");
       content[i] = keyboardScan.nextLine();
 
-      System.out.print("시작일? ");
+      System.out.print("시작일?(yyyy-mm-dd) ");
       startDate[i] = Date.valueOf(keyboardScan.nextLine());
 
       System.out.print("종료일? ");
@@ -50,11 +49,12 @@ public class App2 {
 
       System.out.print("계속 입력하시겠습니까?(y/N)");
       String input = keyboardScan.nextLine();
-      if (input.equalsIgnoreCase("N") || input.equals(""));{
+      if (!input.equalsIgnoreCase("y")) {
         break;
       }
       System.out.println();
     }
+
     keyboardScan.close();
 
     System.out.println("--------------------------------");
