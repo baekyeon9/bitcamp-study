@@ -26,6 +26,6 @@ public class Exam0520 {
     // - 컴파일 할 때는 인덱스가 유효한지 알 수 없다.
     //
     //arr1[5] = 600; // 실행 오류(Runtime Error) 
-    //arr1[-1] = 700; // 실행 오류(Runtime Error)
+    arr1[-1] = 700; // 실행 오류(Runtime Error)
   }
 }
