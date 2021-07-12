@@ -3,24 +3,22 @@ package com.eomcs.pms;
 import java.sql.Date;
 import java.util.Scanner;
 
-//1) 변경준비
-//2) 사용자에게 명령 프롬프트 출력
-//3) 사용자의 명령을 입력받아 출력
-//4) 명령어를 입력받아 출력하는 것을 무한 반복
-//5) exit나 quit 명령을 입력하면 반복문 실행 중지
-//6) /member/add와 /member/list 명령을 구분해 보자!
-//7) /member/add 명령 처리
-//8) /member/list 명령 처리
-
-
+// 1) 명령 프롬프트를 출력한다. 
+// 2) 명령어를 입력 받아 출력한다.
+// 3) 명령어를 입력 받는 것을 반복한다.
+// 4) `/member/add`, `/member/list` 명령을 구분한다.
+// 5) `/member/add` 명령을 처리한다.
+// 6) `/member/list` 명령을 처리한다.
+// 7) `/project/add` 명령을 처리한다.
+// 8) `/project/list` 명령을 처리한다.
+// 9) `/task/add` 명령을 처리한다.
+// 10) `/task/list` 명령을 처리한다
 public class App {
 
   public static void main(String[] args) {
     Scanner keyboardScan = new Scanner(System.in);
 
-    // 최대 입력 개수
     final int LENGTH = 100;
-
     int[] no = new int[LENGTH];
     String[] name = new String[LENGTH];
     String[] email = new String[LENGTH];
@@ -30,11 +28,10 @@ public class App {
     Date[] registeredDate = new Date[LENGTH];
     int size = 0;
 
-
-    while (true) {
-      System.out.println("명령> ");
+    while(true) {
+      System.out.print("명령> ");
       String input = keyboardScan.nextLine();
-      if(input.equals("exit") || input.equals("quit")) {
+      if (input.equals("exit") || input.equals("quit")) {
         System.out.println("안녕!");
         break;
       } else if (input.equals("/member/add")) {
@@ -61,18 +58,20 @@ public class App {
 
         size++;
 
+
       } else if (input.equals("/member/list")) {
         System.out.println("[회원 목록]");
         for (int i = 0; i < size; i++) {
-          // 번호, 이름, 이메일, 전화, 가입일
-          System.out.printf("%d, %s, %s, %s, %s\n", // 출력 형식 지정
+          System.out.printf("%d, %s, %s, %s, %s\n", 
               no[i], name[i], email[i], tel[i], registeredDate[i]);
-        }
-      } else {
+        } 
+      } else { 
         System.out.println("실행할 수 없는 명령입니다.");
       }
       System.out.println();
     }
-    keyboardScan.close();  
+    keyboardScan.close();
   }
+
 }
+
