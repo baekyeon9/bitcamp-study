@@ -56,9 +56,12 @@ public class App {
   static int[] tStatus = new int[TASK_LENGTH];
   static int tSize = 0;
 
+  static String input;
+
   public static void main(String[] args) {
 
     while (true) {
+
       prompt();
 
       if (input.equals("exit") || input.equals("quit")) {
@@ -72,16 +75,16 @@ public class App {
       } else if (input.equals("/member/list")) {
         listMembers();
 
-      } else if (input.equals("/project/add")) {
+      }  else if (input.equals("/project/add")) {
         addProject();
 
-      } else if (input.equals("/project/list")) {
+      }  else if (input.equals("/project/list")) {
         listProjects();
 
-      } else if (input.equals("/task/add")) {
+      }  else if (input.equals("/task/add")) {
         addTask();
 
-      } else if (input.equals("/task/list")) {
+      }  else if (input.equals("/task/list")) {
         listTasks();
 
       } else {
@@ -126,6 +129,7 @@ public class App {
           no[i], name[i], email[i], tel[i], registeredDate[i]);
     }
   }
+
   static void addProject() {
     System.out.println("[프로젝트 등록]");
 
@@ -161,7 +165,8 @@ public class App {
           pNo[i], pTitle[i], pStartDate[i], pEndDate[i], pOwner[i]);
     }
   }
-  static void addTask( ) {
+
+  static void addTask() {
     System.out.println("[작업 등록]");
 
     System.out.print("번호? ");
@@ -204,12 +209,10 @@ public class App {
       // 번호, 작업명, 마감일, 프로젝트, 상태, 담당자
       System.out.printf("%d, %s, %s, %s, %s\n", // 출력 형식 지정
           tNo[i], tContent[i], tDeadline[i], stateLabel, tOwner[i]);
-
     }
   }
   static void prompt() {
     System.out.println("명령> ");
     input = keyboardScan.nextLine();
   }
-
 }
