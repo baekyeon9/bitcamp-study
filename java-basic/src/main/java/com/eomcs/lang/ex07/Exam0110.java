@@ -12,6 +12,7 @@ public class Exam0110 {
     keyScan.close();
 
     int starLen = 1;
+
     while (starLen <= len) {
       // 별 앞에 공백 출력
       int spaceCnt = 1;
