@@ -1,7 +1,9 @@
 package com.eomcs.pms;
 
-//1) 회원 데이터를 입력 받는 코드를 별도의 메서드로 분리한다.
-//   => addMember() 메서드 정의 및 회원 등록 코드를 가져오기
+import com.eomcs.pms.Handler.MemberHandler;
+import com.eomcs.pms.Handler.ProjectHandler;
+import com.eomcs.pms.Handler.TaskHandler;
+import com.eomcs.util.Prompt;
 
 public class App {
 
@@ -13,7 +15,6 @@ public class App {
       if (input.equals("exit") || input.equals("quit")) {
         System.out.println("안녕!");
         break;
-
       } else if (input.equals("/member/add")) {
         MemberHandler.add();
 
@@ -38,10 +39,8 @@ public class App {
       System.out.println();
     }
 
-    Prompt.keyboardScan.close();
+    // Prompt 가 소유하고 관리하고 있는 자원을 닫으라고 명령한다. 
+    Prompt.close();
   }
-
-
-
 
 }
