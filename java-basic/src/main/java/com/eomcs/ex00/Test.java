@@ -10,9 +10,12 @@ public class Test {
   //              가비지가 된 후 가비지 컬렉터가 수집할 때 제거    
   // * 인스턴스마다 구분해서 관리해야 할 데이터를 저장
 
+  static void m1(int c ) {
+    int d = c + 100;
+  }
 
 
-  void m(int c) {
+  void m2(int c) {
     int d = c + 100;
   }
 } //로컬변수 - 메서드가 호출되고 실행될 때
