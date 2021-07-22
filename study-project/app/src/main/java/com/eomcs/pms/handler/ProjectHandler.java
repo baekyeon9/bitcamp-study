@@ -66,5 +66,100 @@ public class ProjectHandler {
     }
   }
 
+  public void detail() {
 
+    System.out.println("[프로젝트 상세보기]");
+    int no = Prompt.inputInt("번호? ");
+
+    Project project = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.projects[i].no == no) {
+        project = this.projects[i];
+        break;
+      }
+    }
+
+    if (project == null) {
+      System.out.println("해당 번호의 프로젝트가 없습니다");
+      return;
+    }
+
+    System.out.printf("번호: %d\n", project.no);
+    System.out.printf("프로젝트명: %s\n", project.title);
+    System.out.printf("시작일: %s\n", project.startDate);
+    System.out.printf("종료일: %s\n", project.endDate);
+    System.out.printf("만든이: %s\n", project.owner);
+    System.out.printf("팀원: %s\n", project.members);
+
+
+
+  }
+
+  public void update() {
+    System.out.println("[프로젝트 변경]");
+    int no = Prompt.inputInt("번호? ");
+
+    Project project = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.projects[i].no == no) {
+        project = this.projects[i];
+        break;
+      }
+    }
+
+    if (project == null) {
+      System.out.println("해당 번호의 프로젝트가 없습니다.");
+      return;
+    }
+
+    String title = Prompt.inputString(String.format("프로젝트명(%s) ?", project.title));
+    String owner = Prompt.inputString(String.format("만든이(%s)? ", project.owner));
+
+
+    String input = Prompt.inputString("정말 변경하시겠습니까? (y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() ==0) {
+      System.out.println("프로젝트 변경을 취소하였습니다.");
+      return;
+    }
+
+    project.title = title;
+    project.owner = owner;
+    System.out.println("프로젝트를 변경하였습니다.");
+  }
+
+  public void delete() {
+
+    System.out.println("[프로젝트 삭제]");
+    int no = Prompt.inputInt("번호? ");
+
+    int projectIndex = -1;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.projects[i].no == no) {
+        projectIndex = i;
+        break;
+      }
+    }
+
+    if (projectIndex == -1) {
+      System.out.println("해당 번호의 프로젝트가 없습니다.");
+      return;
+    }
+
+    String input = Prompt.inputString("정말 삭제하시겠습니까? (y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() == 0); {
+      System.out.println("회원 삭제를 취소하였습니다.");
+      return;
+    }
+
+    for (int i = projectIndex +1; i < this.size; i++) {
+      this.projects[i-1] = this.project[i];
+    }
+    this.projects[--this.size] = null;
+
+    System.out.println("회원을 삭제하였습니다.");
+
+  }
 }
