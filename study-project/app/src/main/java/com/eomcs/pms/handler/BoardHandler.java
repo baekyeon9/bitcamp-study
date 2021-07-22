@@ -6,8 +6,12 @@ import com.eomcs.util.Prompt;
 
 public class BoardHandler {
 
+  // 모든 게시판의 최대 배열 개수가 같기 때문에 다음 변수는 
+  // 그냥 static 필드로 남겨둔다.
   static final int MAX_LENGTH = 5;
 
+  // 게시판 마다 따로 관리해야 하기 때문에 인스턴스 필드로 전환한다.
+  // => static 옵션을 뺀다.
   Board[] boards = new Board[MAX_LENGTH];
   int size = 0;
 
@@ -51,6 +55,7 @@ public class BoardHandler {
         break;
       }
     }
+
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
@@ -74,32 +79,57 @@ public class BoardHandler {
         break;
       }
     }
+
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
-    String label = String.format("제목(%s)?", board.title);
-    String title = Prompt.inputString(label);
+    String title = Prompt.inputString(String.format("제목(%s)? ", board.title));
+    String content = Prompt.inputString(String.format("내용(%s)? ", board.content));
 
-    label = String.format("내용(%s)?", board.content);
-    String content = Prompt.inputString(label);
-
-    String input = Prompt.inputString("정말 변경하시겠습니까? (y/N)");
-    if (input.equalsIgnoreCase("n") || input.length() == 0) { 
+    String input = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() == 0) {
       System.out.println("게시글 변경을 취소하였습니다.");
       return;
-    }  
+    }
 
     board.title = title;
     board.content = content;
     System.out.println("게시글을 변경하였습니다.");
   }
-}
+
+  public void delete() {
+    System.out.println("[게시글 삭제]");
+    int no = Prompt.inputInt("번호? ");
+
+    // Board 인스턴스가 들어있는 배열을 뒤져서 게시글 번호와 일치하는 Board 인스턴스를 찾는다. 
+    for (int i = 0; i < this.size; i++) {
+      if (this.boards[i].no == no) {
+        board = this.boards[i];
+        break;
+      }
+    }
+
+    if (board == null) {
+      System.out.println("해당 번호의 게시글이 없습니다.");
+      return;
+    }
+
+    String input = Prompt.inputString("정말 삭제하시겠습니까?(y/N)");
+    if (input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("게시글을 삭제를 취소하였습니다.");
+      return;
+
+      for (int i = no; i < this.size; i++) {
+        boards[i] = boards[i+1];
+      }
+      System.out.println("게시글을 삭제하였습니다.");
+    }
+  }
 
 
-
-
+  /* 
 
 
 
