@@ -13,16 +13,15 @@ public class CalculatorTest {
     c1.plus(4);
     c1.minus(7);
     c1.multiple(3);
-    System.out.println(c1.result);
-
 
     c2.plus(3);
     c2.multiple(2);
     c2.minus(1);
-    System.out.println(c2.result);
 
+    System.out.println(c1.result);
+    System.out.println(c2.result);
   }
 
 
-}
 
+}

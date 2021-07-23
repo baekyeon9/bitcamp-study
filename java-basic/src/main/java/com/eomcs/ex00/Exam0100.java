@@ -1,4 +1,4 @@
-package com.eomcs.oop.ex00;
+package com.eomcs.ex00;
 
 public class Exam0100 {
   public static void main(String[] args) {

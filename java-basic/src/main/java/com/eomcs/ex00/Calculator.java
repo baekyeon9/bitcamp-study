@@ -13,6 +13,6 @@ public class Calculator {
   }
 
   void multiple(int value) {
-    this.result *= value;
+    this.result *= value; // result = result * value
   }
 }
