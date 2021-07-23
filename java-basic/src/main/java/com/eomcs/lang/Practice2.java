@@ -1,34 +1,10 @@
 package com.eomcs.lang;
 
-import java.util.Scanner;
+int [] arr1 = new int [5];
+// 배열의 최대 크기는 int 타입의 최대 값에서 2를 뺀 값이다.
+// 배열의 최대 크기 = Integer.MAX_VALUE -2
 
+// 배열 메모리에 접근
 
-
-public class Practice2 {
-  public static void main(String[] args) {
-    Scanner keyScan = new Scanner(System.in);
-    System.out.println("밑변의 길이? ");
-    int len = keyScan.nextInt();
-    keyScan.close();
-
-    int starLen = 1;
-    while (starLen <= len) {
-
-      int spaceCnt = 1;
-      int spaceLen = (len - starLen)/ 2;
-      while (spaceCnt <= spaceLen) {
-        System.out.print(" ");
-        spaceCnt++;
-      }
-
-      int starCnt = 1;
-      while (starCnt <= starLen) {
-        System.out.println("*");
-        starCnt++;
-      }
-      System.out.println();
-      starLen += 2;
-
-    }
-  }
-}
+// 배열변수[인덱스] = 값;
+// ex_ arr [0] =1--

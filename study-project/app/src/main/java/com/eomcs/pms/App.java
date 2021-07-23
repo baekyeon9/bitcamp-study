@@ -1,105 +1,54 @@
 package com.eomcs.pms;
 
-import com.eomcs.pms.handler.BoardHandler;
-import com.eomcs.pms.handler.MemberHandler;
-import com.eomcs.pms.handler.ProjectHandler;
-import com.eomcs.pms.handler.TaskHandler;
-import com.eomcs.util.Prompt;
+import java.util.Scanner;
 
 public class App {
 
   public static void main(String[] args) {
 
-    BoardHandler boardHandler = new BoardHandler();
-    MemberHandler memberHandler = new MemberHandler();
-    ProjectHandler projectHandler = new ProjectHandler();
-    TaskHandler taskHandler = new TaskHandler();
+    Scanner keyScan = new Scanner(System.in);
 
-    while (true) {
-      String input = Prompt.inputString("명령> ");
+    System.out.println("[회원]");
 
-      if (input.equals("exit") || input.equals("quit")) {
-        System.out.println("안녕!");
-        break;
-      } else if (input.equals("/member/add")) {
-        memberHandler.add();
+    System.out.println("번호? ");
+    String no = keyScan.nextLine();
 
-      } else if (input.equals("/member/list")) {
-        memberHandler.list();
+    System.out.println("이름? ");
+    String name = keyScan.nextLine();
 
-      } else if (input.equals("/member/detail")) {
-        memberHandler.detail();
+    System.out.println("이메일? ");
+    String email = keyScan.nextLine();
 
-      } else if (input.equals("/member/update")) {
-        memberHandler.update();
+    System.out.println("암호? ");
+    String password = keyScan.nextLine();
 
-      } else if (input.equals("/member/delete")) {
-        memberHandler.delete();
+    System.out.println("사진? ");
+    String photo = keyScan.nextLine();
 
-      }  else if (input.equals("/project/add")) {
-        projectHandler.add(memberHandler);
+    System.out.println("전화? ");
+    String tel = keyScan.nextLine();
 
-      }  else if (input.equals("/project/list")) {
-        projectHandler.list();
+    java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
 
-      }  else if (input.equals("/project/detail")) {
-        projectHandler.detail();
+    System.out.println("계속 입력하시겠습니까? (y/N)");
+    String input = keyScan.nextLine();
 
-      }  else if (input.equals("/project/update")) {
-        projectHandler.update(memberHandler);
-
-      }  else if (input.equals("/project/delete")) {
-        projectHandler.delete();
-
-      }  else if (input.equals("/task/add")) {
-        taskHandler.add(memberHandler);
-
-      }  else if (input.equals("/task/list")) {
-        taskHandler.list();
-
-      }  else if (input.equals("/task/detail")) {
-        taskHandler.detail();
-
-      }  else if (input.equals("/task/update")) {
-        taskHandler.update(memberHandler);
-
-      }  else if (input.equals("/task/delete")) {
-        taskHandler.delete();
-
-      }  else if (input.equals("/board/add")) {
-        boardHandler.add();
-
-      }  else if (input.equals("/board/list")) {
-        boardHandler.list();
-
-      }  else if (input.equals("/board/detail")) {
-        boardHandler.detail();
-
-      }  else if (input.equals("/board/update")) {
-        boardHandler.update();
-
-      }  else if (input.equals("/board/delete")) {
-        boardHandler.delete();
-
-      } else {
-        System.out.println("실행할 수 없는 명령입니다.");
-      }
-      System.out.println();
+    if (input.equalsIgnoreCase("N") || input.equals("")) {
+      break;
     }
 
-    // Prompt 가 소유하고 관리하고 있는 자원을 닫으라고 명령한다. 
-    Prompt.close();
+    keyScan.close();
+
+    System.out.println("--------------------------------");  
+
+    System.out.println("[회원]");
+
+    System.out.println("번호: " + no);
+    System.out.println("이름: " + name);
+    System.out.println("이메일: " + email);
+    System.out.printf("암호: %s\n", password);
+    System.out.printf("사진: %s\n", photo);
+    System.out.printf("전화: %s\n", tel);
+    System.out.printf("가입일: %s\n", now);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
