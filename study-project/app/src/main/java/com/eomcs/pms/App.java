@@ -1,54 +1,67 @@
 package com.eomcs.pms;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class App {
 
   public static void main(String[] args) {
+    System.out.println("[회원]");
+
+    final int MAX_LENGTH = 100;
+
+    int[] no = new int[MAX_LENGTH];
+    String[] name = new String[MAX_LENGTH];
+    String[] email = new String[MAX_LENGTH];
+    String[] password = new String[MAX_LENGTH];
+    String[] photo = new String[MAX_LENGTH];
+    String[] tel = new String[MAX_LENGTH];
+    Date[] registeredDate = new Date[MAX_LENGTH];
 
     Scanner keyScan = new Scanner(System.in);
 
-    System.out.println("[회원]");
+    int size = 0;
 
-    System.out.println("번호? ");
-    String no = keyScan.nextLine();
+    for(int i = 0; i < MAX_LENGTH; i++) {
+      System.out.print("번호? ");
+      no[i] = Integer.parseInt(keyScan.nextLine());
+      System.out.print("이름? ");
+      name[i] = keyScan.nextLine();
+      System.out.print("이메일? ");
+      email[i] = keyScan.nextLine();
+      System.out.print("암호? ");
+      password[i] = keyScan.nextLine();
+      System.out.print("사진? ");
+      photo[i] = keyScan.nextLine();
+      System.out.print("전화? ");
+      tel[i] = keyScan.nextLine();
+      registeredDate[0] = new Date();
 
-    System.out.println("이름? ");
-    String name = keyScan.nextLine();
+      size++;
 
-    System.out.println("이메일? ");
-    String email = keyScan.nextLine();
-
-    System.out.println("암호? ");
-    String password = keyScan.nextLine();
-
-    System.out.println("사진? ");
-    String photo = keyScan.nextLine();
-
-    System.out.println("전화? ");
-    String tel = keyScan.nextLine();
-
-    java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
-
-    System.out.println("계속 입력하시겠습니까? (y/N)");
-    String input = keyScan.nextLine();
-
-    if (input.equalsIgnoreCase("N") || input.equals("")) {
-      break;
+      System.out.print("계속 입력하시겠습니까? (y/N)");
+      String input = keyScan.nextLine();
+      if (input.equalsIgnoreCase("n") || input.length()==0) {
+        break;
+      }
     }
-
     keyScan.close();
+    System.out.println();
 
     System.out.println("--------------------------------");  
 
     System.out.println("[회원]");
 
-    System.out.println("번호: " + no);
-    System.out.println("이름: " + name);
-    System.out.println("이메일: " + email);
-    System.out.printf("암호: %s\n", password);
-    System.out.printf("사진: %s\n", photo);
-    System.out.printf("전화: %s\n", tel);
-    System.out.printf("가입일: %s\n", now);
+    for (int i=0; i  <size; i++) {
+
+      System.out.printf("%d, %s, %s, %s, %tY-%5$tm-%5$td",
+          no[i], 
+          name[i], 
+          email[i], 
+          tel[i], 
+          registeredDate[i]);
+
+
+    }
   }
 }

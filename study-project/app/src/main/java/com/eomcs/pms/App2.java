@@ -6,48 +6,61 @@ import java.util.Scanner;
 public class App2 {
 
   public static void main(String[] args) {
-
+    System.out.println("[프로젝트]");
     Scanner keyScan = new Scanner(System.in);
 
-    System.out.println("[프로젝트]");
+    final int MAX_LENGTH = 100;
 
-    System.out.print("번호? ");
-    int no = keyScan.nextInt();
-    keyScan.nextLine();
+    int[] no = new int[MAX_LENGTH] ;
+    String[] title = new String[MAX_LENGTH];
+    String[] content = new String[MAX_LENGTH];
+    Date[] startDate = new Date[MAX_LENGTH];
+    Date[] endDate = new Date[MAX_LENGTH];
+    String[] owner = new String[MAX_LENGTH];    
+    String[] members = new String[MAX_LENGTH];
 
-    System.out.print("프로젝트명? ");
-    String title = keyScan.nextLine();
+    int size = 0;
 
-    System.out.print("내용? ");
-    String content = keyScan.nextLine();
+    for(int i = 0; i < MAX_LENGTH; i++) {
 
+      System.out.print("번호? ");
+      no[i] = Integer.parseInt(keyScan.nextLine());
+      System.out.print("프로젝트명? ");
+      title[i] = keyScan.nextLine();
+      System.out.print("내용? ");
+      content[i] = keyScan.nextLine();
+      System.out.print("시작일?(yyyy-mm-dd) ");
+      startDate[i] = Date.valueOf(keyScan.nextLine());
+      System.out.print("종료일?(yyyy-mm-dd) ");
+      endDate[i] = Date.valueOf(keyScan.nextLine());
+      System.out.print("만든이? ");
+      owner[i] = keyScan.nextLine();
+      System.out.print("팀원? ");
+      members[i] = keyScan.nextLine();
 
-    System.out.print("시작일?(yyyy-mm-dd) ");
-    Date startDate = Date.valueOf(keyScan.nextLine());
+      size++;
+      System.out.println();
 
-
-    System.out.print("종료일?(yyyy-mm-dd) ");
-    Date endDate = Date.valueOf(keyScan.nextLine());
-
-
-    System.out.print("만든이? ");
-    String owner = keyScan.nextLine();
-
-
-    System.out.print("팀원? ");
-    String members = keyScan.nextLine();
+      System.out.println("계속 입력하시겠습니까?");
+      String input = keyScan.nextLine();
+      if (input.equalsIgnoreCase("n") || input.length()==0) {
+        break;
+      }
+      System.out.println();
+    }
 
     keyScan.close();
 
     System.out.println("--------------------------------");
 
-    System.out.printf("번호: %d\n", no);
-    System.out.printf("프로젝트명: %s\n", title);
-    System.out.printf("내용: %s\n", content);
-    System.out.printf("시작일: %s\n", startDate);
-    System.out.printf("종료일: %s\n", endDate);
-    System.out.printf("만든이: %s\n", owner);
-    System.out.printf("팀원: %s\n", members);
 
+    for (int i = 0; i < size; i++) {
+      System.out.printf("%d, %s, %s, %s, %s\n",
+          no[i],
+          title[i],
+          startDate[i],
+          endDate[i],
+          owner[i]);
+    }
   }
 }
