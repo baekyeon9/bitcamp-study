@@ -17,7 +17,6 @@ public class App3 {
     Date[] deadline = new Date[MAX_LENGTH];
     int[] status = new int[MAX_LENGTH];
     String[] owner = new String[MAX_LENGTH];
-
     int size = 0;
 
     System.out.println("[작업]");
