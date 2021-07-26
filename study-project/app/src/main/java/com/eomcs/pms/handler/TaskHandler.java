@@ -10,9 +10,12 @@ public class TaskHandler {
 
   Task[] tasks = new Task[MAX_LENGTH];
   int size = 0;
-  public MemberHandler memberHandler;
+  MemberHandler memberHandler;
 
-  //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
+  public TaskHandler(MemberHandler memberHandler) {
+    this.memberHandler = memberHandler;
+  }
+
   public void add() {
     System.out.println("[작업 등록]");
 
