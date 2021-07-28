@@ -12,9 +12,10 @@ public class App {
 
     BoardHandler boardHandler = new BoardHandler();
     MemberHandler memberHandler = new MemberHandler();
-    ProjectHandler projectHandler = new ProjectHandler(memberHandler);
-    TaskHandler taskHandler = new TaskHandler(memberHandler);
-
+    ProjectHandler projectHandler = new ProjectHandler();
+    projectHandler.memberHandler = memberHandler;
+    TaskHandler taskHandler = new TaskHandler();
+    taskHandler.memberHandler = memberHandler;
 
     while (true) {
       String input = Prompt.inputString("명령> ");
@@ -53,7 +54,7 @@ public class App {
         projectHandler.delete();
 
       }  else if (input.equals("/task/add")) {
-        taskHandler.add();
+        taskHandler.add(memberHandler);
 
       }  else if (input.equals("/task/list")) {
         taskHandler.list();
@@ -62,7 +63,7 @@ public class App {
         taskHandler.detail();
 
       }  else if (input.equals("/task/update")) {
-        taskHandler.update();
+        taskHandler.update(memberHandler);
 
       }  else if (input.equals("/task/delete")) {
         taskHandler.delete();

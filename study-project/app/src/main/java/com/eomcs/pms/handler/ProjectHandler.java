@@ -10,11 +10,7 @@ public class ProjectHandler {
 
   Project[] projects = new Project[MAX_LENGTH];
   int size = 0;
-  MemberHandler memberHandler;
-
-  public ProjectHandler(MemberHandler memberHandler) {
-    this.memberHandler = memberHandler;
-  }
+  public MemberHandler memberHandler; 
 
   public void add() {
     System.out.println("[프로젝트 등록]");

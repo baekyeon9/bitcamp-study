@@ -11,7 +11,7 @@ public class Exam0210 {
     // 계산 결과를 담을 변수를 준비한다.
     int result = 0;
 
-    // 메서드를 호출하여 작업을 수행하고,=
+    // 메서드를 호출하여 작업을 수행하고,
     // 리턴 결과는 로컬 변수에 저장한다.
     result = plus(2, 3);
     result = minus(result, 1);

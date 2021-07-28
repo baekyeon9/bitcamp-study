@@ -10,12 +10,10 @@ public class TaskHandler {
 
   Task[] tasks = new Task[MAX_LENGTH];
   int size = 0;
-  MemberHandler memberHandler;
+  public MemberHandler memberHandler;
 
-  public TaskHandler(MemberHandler memberHandler) {
-    this.memberHandler = memberHandler;
-  }
 
+  //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
   public void add() {
     System.out.println("[작업 등록]");
 
@@ -151,7 +149,7 @@ public class TaskHandler {
   private String promptOwner(String label) {
     while (true) {
       String owner = Prompt.inputString(label);
-      if (this.memberHandler.exist(owner)) {
+      if (memberHandler.exist(owner)) {
         return owner;
       } else if (owner.length() == 0) {
         return null;
