@@ -26,7 +26,7 @@ public class Exam0220 {
   }
 
   public static void main(String[] args) {
-    // 2) @Override를 이용해 오버라이딩의 실수를 방지한 예:
+    // 2) @Override를 이용해 오버라이딩의 실수를 방지한 예:                                                        
     B3 obj = new B3();
     obj.m(100); // B3의 m(int) 호출
 
