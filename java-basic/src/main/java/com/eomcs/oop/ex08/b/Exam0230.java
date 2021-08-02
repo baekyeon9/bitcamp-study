@@ -2,9 +2,9 @@
 package com.eomcs.oop.ex08.b;
 
 import java.util.Calendar;
-import com.eomcs.oop.ex08.b.sub.C;
+import com.eomcs.oop.ex08.b.sub.Y;
 
-public class Exam0230 extends C {
+public class Exam0230 extends Y {
 
   public static void main(String[] args) {
     // java.util.Calendar 객체 만들기
