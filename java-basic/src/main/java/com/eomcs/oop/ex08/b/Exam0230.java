@@ -2,8 +2,14 @@
 package com.eomcs.oop.ex08.b;
 
 import java.util.Calendar;
+<<<<<<< HEAD
 
 public class Exam0230 {
+=======
+import com.eomcs.oop.ex08.b.sub.Y;
+
+public class Exam0230 extends Y {
+>>>>>>> 973244ccf7032bdd2a5f5a5256acca247b26e4d9
 
   public static void main(String[] args) {
     // java.util.Calendar 객체 만들기

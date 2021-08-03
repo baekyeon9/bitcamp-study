@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 973244ccf7032bdd2a5f5a5256acca247b26e4d9
 package com.eomcs.oop.ex08.b;
 
 public class X {
@@ -6,6 +11,7 @@ public class X {
   protected int protectedVar;
   public int publicVar;
 
+<<<<<<< HEAD
   private void privateMethod() {}
   void defaultMethod() {}
   protected void protectedMethod() {}
@@ -22,5 +28,10 @@ public class X {
     this.defaultMethod();
     this.protectedMethod();
     this.publicMethod();
+=======
+  public void ｔｅｓｔ() {
+    // 같은 클래스의 멤버인 경우 제한 없이 모든 멤버에 접근할 수 있다.
+    this.privateVar 
+>>>>>>> 973244ccf7032bdd2a5f5a5256acca247b26e4d9
   }
 }
