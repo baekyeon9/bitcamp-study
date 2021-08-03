@@ -4,7 +4,6 @@ import com.eomcs.pms.handler.BoardHandler;
 import com.eomcs.pms.handler.MemberHandler;
 import com.eomcs.pms.handler.ProjectHandler;
 import com.eomcs.pms.handler.TaskHandler;
-import com.eomcs.pms.menu.BoardAddMenu;
 import com.eomcs.pms.menu.BoardDeleteMenu;
 import com.eomcs.pms.menu.BoardDetailMenu;
 import com.eomcs.pms.menu.BoardListMenu;
@@ -50,7 +49,14 @@ public class App {
     MenuGroup boardMenu = new MenuGroup("게시판");
     mainMenuGroup.add(boardMenu);
 
-    boardMenu.add(new BoardAddMenu(boardHandler));
+
+
+
+    boardMenu.add(new Menu("등록") {
+      public void execute() {
+        boardHandler.add();
+      }
+    });
     boardMenu.add(new BoardListMenu(boardHandler));
     boardMenu.add(new BoardDetailMenu(boardHandler));
     boardMenu.add(new BoardUpdateMenu(boardHandler));
