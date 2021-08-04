@@ -17,7 +17,6 @@ public class MenuGroup extends Menu {
   // 컴파일 오류가 발생한다. 
   // Menu 클래스에는 기본 생성자가 없다. 
   // 따라서 개발자가 직접 생성자를 정의해야 한다.
-
   public MenuGroup(String title) {
     super(title);
   }
