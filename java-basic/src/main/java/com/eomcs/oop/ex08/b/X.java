@@ -8,7 +8,7 @@ public class X {
   protected int protectedVar;
   public int publicVar;
 
-  public void ｔｅｓｔ() {
+  public void test() {
     // 같은 클래스의 멤버인 경우 제한 없이 모든 멤버에 접근할 수 있다.
     this.privateVar 
   }
