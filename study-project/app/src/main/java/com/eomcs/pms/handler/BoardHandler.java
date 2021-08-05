@@ -6,15 +6,7 @@ import com.eomcs.util.Prompt;
 
 public class BoardHandler {
 
-static class Node {
-  
-  Board board;
-  Node next;
-  
-  public Node(Board board) {
-    this.board = board;
-  }
-}
+  BoardList boardList = new BoardList();
 
   public void add() {
     System.out.println("[새 게시글]");
@@ -27,43 +19,31 @@ static class Node {
     board.writer = Prompt.inputString("작성자? ");
     board.registeredDate = new Date(System.currentTimeMillis());
 
-    Node node = new Node(Board);
-    
-    if (head == null) {
-      tail = head = node;
-    } else { 
-      tail.next = node; // 기존에 tail이 가리키는 마지막 노드의 next 변수에 새 노드 주소를 저장한다.
-      tail = node; // 새로 만든 노드를 마지막 노드로 설정한다.
-    
-    }
-    size++;
+    boardList.add(board);
   }
 
   public void list() {
     System.out.println("[게시글 목록]");
-    if (head == null) {
-      return;
-    }
-  
-    Node node = head;
-    
-    do {
+
+    Object[] list = boardList.toArray(); // 리턴하는 것이 Object이다!
+
+    for (Object obj : list) {
+      Board board = (Board) obj; // 형변환 (Obj 에 실제 들어있는 것은 Board)
       System.out.printf("%d, %s, %s, %s, %d, %d\n", 
-          node.board.no, 
-          node.board.title, 
-          node.board.writer,
-          node.board.registeredDate,
-          node.board.viewCount, 
-          node.board.like);
-      node = node.next;
-    } while (node != null);
+          board.no, 
+          board.title, 
+          board.writer,
+          board.registeredDate,
+          board.viewCount, 
+          board.like);
+    }
   }
 
   public void detail() {
     System.out.println("[게시글 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = findByNo(no);
+    Board board = boardList.findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
@@ -81,7 +61,7 @@ static class Node {
     System.out.println("[게시글 변경]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = findByNo(no);
+    Board board = boardList.findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
@@ -106,7 +86,7 @@ static class Node {
     System.out.println("[게시글 삭제]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = findByNo(no);
+    Board board = boardList.findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
@@ -119,37 +99,9 @@ static class Node {
       return;
     }
 
-    while (node != null) {
-      if (node.board == board) {
-        if (node == head) {
-          head = node.next;
-        } else {
-          prev.next = node.next; // 이전 노드를 다음 노드와 연결한다.
-        }
-        node.next = null; // 다음 노드와 연결을 끊는다.
-    
-        if (node == tail) {
-          tail = prev; // 이전 노드를 마지막 노드로 설정한다.
-        }
-    break;
-      }
-      prev = node; //현대 노드가 아니라면, 현재 노드의 주소를  prev 변수에 저장하고
-      node = node.next; // node 변수에는 다음 노드의 주소를 저장한다.
-    }
-    
-    size--;
-      
+    boardList.remove(board);
 
     System.out.println("게시글을 삭제하였습니다.");
-  }
-
-  private Board findByNo(int no) {
-    if (node.board.no == no) {
-      return node.board;
-    }
-    node = node.next;
-  }
-    return null;
   }
 }
 
