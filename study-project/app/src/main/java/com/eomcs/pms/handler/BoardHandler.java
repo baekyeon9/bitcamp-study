@@ -25,16 +25,15 @@ public class BoardHandler {
   public void list() {
     System.out.println("[게시글 목록]");
 
-    Object[] list = boardList.toArray(); // 리턴하는 것이 Object이다!
+    Board[] list = boardList.toArray();
 
-    for (Object obj : list) {
-      Board board = (Board) obj; // 형변환 (Obj 에 실제 들어있는 것은 Board)
-      System.out.printf("%d, %s, %s, %s, %d, %d\n", 
-          board.no, 
-          board.title, 
-          board.writer,
+    for (Board board : list) {
+      System.out.printf("%d, %s, %s, %s, %d, %d\n",
+          board.no,
+          board.title,
+          board.writer, 
           board.registeredDate,
-          board.viewCount, 
+          board.viewCount,
           board.like);
     }
   }
@@ -104,9 +103,6 @@ public class BoardHandler {
     System.out.println("게시글을 삭제하였습니다.");
   }
 }
-
-
-
 
 
 
