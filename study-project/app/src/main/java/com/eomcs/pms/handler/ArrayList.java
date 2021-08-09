@@ -1,6 +1,6 @@
 package com.eomcs.pms.handler;
 
-public class ArrayList {
+public class ArrayList implements List {
 
   static final int MAX_LENGTH = 5;
 
@@ -9,11 +9,11 @@ public class ArrayList {
 
   public void add(Object obj) {
     if (size == list.length) {
-      Object [] arr = new Object[list.length + (list.length >> 1)];
+      Object[] arr = new Object[list.length + (list.length >> 1)];
       for (int i = 0; i < size; i++) {
         arr[i] = list[i];
       }
-      list = arr; // boards에 저장된 옛날 배열 주소를 버리고 새 배열 주소를 저장한다.
+      list = arr;
     }
     this.list[this.size++] = obj;
   }
@@ -25,6 +25,7 @@ public class ArrayList {
     }
     return arr; // 새 배열을 리턴한다.
   }
+
   public boolean remove(Object obj) {
     int index = indexOf(obj);
     if (index == -1) {
@@ -41,10 +42,11 @@ public class ArrayList {
 
   private int indexOf(Object obj) {
     for (int i = 0; i < this.size; i++) {
-      if (this.list == obj) {
+      if (this.list[i] == obj) {
         return i;
       }
     }
     return -1;
   }
+
 }
