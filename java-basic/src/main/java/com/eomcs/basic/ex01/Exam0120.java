@@ -7,7 +7,6 @@ public class Exam0120 {
 
   static class My {
 
-
   }
 
   public static void main(String[] args) {
