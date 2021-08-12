@@ -1,4 +1,4 @@
-package com.eomcs.oop.ex09.h;
+package com.eomcs.oop.ex09.g;
 
 public interface CarCheckInfo {
   int getGas();
