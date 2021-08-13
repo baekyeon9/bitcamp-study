@@ -10,7 +10,7 @@ public class Exam0210 {
     Short s = new Short((short)20000);          // ==> short
     Integer i = new Integer(3000000);           // ==> int
     Long l = new Long(60000000000L);            // ==> long
-    Float f = new Float(3.14f);                 // ==> float
+    Float f = new Float(3.14f);                 // ==> floatl
     Double d = new Double(3.14159);             // ==> double
     Boolean bool = new Boolean(true);           // ==> boolean
     Character c = new Character((char)0x41);    // ==> char

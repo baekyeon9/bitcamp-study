@@ -37,12 +37,3 @@ public class Exam0310 {
     System.out.println(true ^ false);
   }
 }
-
-
-
-
-
-
-
-
-

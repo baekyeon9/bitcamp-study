@@ -49,15 +49,14 @@ public class Exam0130 {
     s3 = s2; // OK!
     //    s3 = s1 + s2; // 컴파일 오류!
 
+    int s4 = s1 + s2;
+    System.out.println(s4);
     // 이유?
     // - byte 경우와 마찬가지고 short 메모리의 값을 직접 연산할 수 없다.
     // - 임시 4바이트 메모리를 만든 다음에 그 메모리에 값을 저장한 후 
     //   연산을 수행한다.
     // - 당연히 그 연산 결과를 담은 메모리도 4바이트이기 때문에
     //   short(2byte) 메모리에 저장할 수 없는 것이다.
-
-    int s4 = s1 + s2;
-    System.out.println(s4);
 
   }
 }
