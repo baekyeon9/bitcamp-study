@@ -12,7 +12,6 @@ public class Exam0110 {
     keyScan.close();
 
     int starLen = 1;
-
     while (starLen <= len) {
       // 별 앞에 공백 출력
       int spaceCnt = 1;
@@ -23,14 +22,10 @@ public class Exam0110 {
       }
 
       // 별 출력
-
-      for(int starCnt = 1; starCnt <= starLen; starCnt++) {
+      int starCnt = 1;
+      while (starCnt <= starLen) {
         System.out.print("*");
-
-        //      int starCnt = 1;
-        //      while (starCnt <= starLen) {
-        //        System.out.print("*");
-        //        starCnt++;
+        starCnt++;
       }
 
       // 출력 줄 바꾸기

@@ -39,8 +39,6 @@ public class Exam0131 {
     String email;
     int gender;
     boolean working;
-<<<<<<< HEAD
-=======
 
     @Override
     public boolean equals(Object obj) {
@@ -55,9 +53,9 @@ public class Exam0131 {
           && Objects.equals(name, other.name) && Objects.equals(tel, other.tel)
           && working == other.working;
     }
->>>>>>> ca23074612f54d49788c96fe2de7009a1cc2eca7
 
   }
+
 }
 
 

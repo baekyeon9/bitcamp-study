@@ -8,9 +8,6 @@ package com.eomcs.lang.ex03;
 //
 public class Exam0340 {
 
-  static float test = 12.375f;
-  static double test2 = 12.375;
-
   public static void main(String[] args) {
 
     //## 4byte(float) 부동소수점의 유효자릿수
