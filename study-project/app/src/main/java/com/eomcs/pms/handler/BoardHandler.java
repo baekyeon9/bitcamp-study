@@ -21,7 +21,7 @@ public class BoardHandler {
     board.setTitle(Prompt.inputString("제목? "));
     board.setContent(Prompt.inputString("내용? "));
     board.setWriter(Prompt.inputString("작성자? "));
-    board.setRegisteredDate (new Date(System.currentTimeMillis()));
+    board.setRegisteredDate(new Date(System.currentTimeMillis()));
 
     boardList.add(board);
   }
@@ -84,6 +84,7 @@ public class BoardHandler {
     }
 
     board.setTitle(title);
+    board.setContent(content);
     System.out.println("게시글을 변경하였습니다.");
   }
 

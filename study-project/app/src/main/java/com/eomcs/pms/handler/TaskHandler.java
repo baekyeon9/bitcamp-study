@@ -44,7 +44,7 @@ public class TaskHandler {
       System.out.printf("%d, %s, %s, %s, %s\n",
           task.getNo(), 
           task.getContent(), 
-          task.getContent(), 
+          task.getDeadline(), 
           getStatusLabel(task.getStatus()), 
           task.getOwner());
     }
@@ -61,7 +61,7 @@ public class TaskHandler {
     }
 
     System.out.printf("내용: %s\n", task.getContent());
-    System.out.printf("마감일: %s\n", task.getContent());
+    System.out.printf("마감일: %s\n", task.getDeadline());
     System.out.printf("상태: %s\n", getStatusLabel(task.getStatus()));
     System.out.printf("담당자: %s\n", task.getOwner());
   }
