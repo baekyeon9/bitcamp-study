@@ -59,17 +59,64 @@ public class Exam0240 {
     list.add(m2);
     list.add(m3);
 
-    class MyConsumer implements Consumer<Member> {
-      @Override
-      public void accept(Member m) {
-        // forEach() 에서 반복문을 돌릴 때
-        // Consumer 규칙에 따라 
-        // 각 항목에 대해 이 메서드를 호출한다.
-        System.out.printf("이름: %s, 나이: %d\n", m.name, m.age);
-      }
-    }
+    // arraylist에서 써내는방법
 
-    list.forEach(new MyConsumer());
+    list.forEach(new Consumer<Member>() {
+      @Override
+      public void accept(Member t) {
+
+      }
+    });
+
+
+    //    Iterator<Member> 목록에서값을꺼내주는자 = list.iterator();
+    //    while (목록에서값을꺼내주는자.hasNext()) {
+    //      Member m = 목록에서값을꺼내주는자.next();
+    //      System.out.printf("%s(%d)\n", m.name, m.age);
+    //    }
+
+    //    Member[] arr = list.toArray(new Member[list.size()];
+    //    
+    //
+    //    for (Member m : arr) {
+    //      System.out.printf("%s(%d)\n", m.name, m.age);
+    //    }
+    //    
+
+    //    Member[] arr = new Member[list.size()];
+    //    list.toArray(arr);
+    //
+    //    for (Member m : arr) {
+    //      System.out.printf("%s(%d)\n", m.name, m.age);
+    //    }
+
+    //    Object[] arr = list.toArray();
+    //
+    //    for (Object item : arr) {
+    //      Member m = (Member)item;
+    //      System.out.printf("%s(%d)\n", m.name, m.age);
+    //    }
+
+
+    // 1) 반복문으로 꺼낸다
+    //    for (int i = 0; i < list.size(); i++) {
+    //      Member m = list.get(i);
+    //      System.out.printf("%s(%d)\n", m.name, m.age);
+    //    }
+
+
+
+    //    class MyConsumer implements Consumer<Member> {
+    //      @Override
+    //      public void accept(Member m) {
+    //        // forEach() 에서 반복문을 돌릴 때
+    //        // Consumer 규칙에 따라 
+    //        // 각 항목에 대해 이 메서드를 호출한다.
+    //        System.out.printf("이름: %s, 나이: %d\n", m.name, m.age);
+    //      }
+    //    }
+    //
+    //    list.forEach(new MyConsumer());
   }
 }
 

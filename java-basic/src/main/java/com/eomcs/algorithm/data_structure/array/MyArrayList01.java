@@ -23,16 +23,28 @@ package com.eomcs.algorithm.data_structure.array;
 //12) 여러 개의 목록을 동시에 관리할 수 있도록
 //  MyArrayList에 선언된 레퍼런스 배열을 스태틱 대신 인스턴스로 전환한다.
 //- 개별적으로 관리해야 할 데이터는 인스턴스 변수를 사용해야 한다.
-//
-//테스트3 - MyArrayListTest3
-//12) 여러 개의 목록을 동시에 관리할 수 있도록
-//  MyArrayList에 선언된 레퍼런스 배열을 스태틱 대신 인스턴스로 전환한다.
-//- 개별적으로 관리해야 할 데이터는 인스턴스 변수를 사용해야 한다.
 //13) 캡슐화 적용하여 공개할 멤버와 공개하지 말아야 할 멤버를 구분한다.
+//14) ArrayList 인스턴스를 생성할 때 배열의 초기 크기를 설정할 수 있도록 생성자를 추가한다.
+//15) ArrayList 인스턴스를 생성할 때 초기 크기를 지정하지 않고 생성할 수 있도록 기본 생성자를 추가한다.
+//16) 배열 크기를 지정할 때 기본 크기 보다 큰 값이 되도록 생성자를 변경한다.
+//17) 배열의 기본 크기를 직접 숫자로 지정하지 말고 상수를 사용하여 지정한다.
 public class MyArrayList01 {
 
-  private Object[] elementData = new Object[5];
+  private static final int DEFAULT_CAPACITY = 5;
+  private Object[] elementData;
   private int size;
+
+  public MyArrayList01() {
+    elementData = new Object[DEFAULT_CAPACITY];
+  }
+
+  public MyArrayList01(int initialCapacity) {
+    if (initialCapacity > DEFAULT_CAPACITY) {
+      elementData = new Object[DEFAULT_CAPACITY];
+    } else {
+      elementData = new Object[initialCapacity];
+    }
+  }
 
   public boolean add(Object e) {
     if (size == elementData.length) {
