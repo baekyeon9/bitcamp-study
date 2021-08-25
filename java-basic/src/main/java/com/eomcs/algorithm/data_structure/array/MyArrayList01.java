@@ -27,7 +27,10 @@ package com.eomcs.algorithm.data_structure.array;
 //15) ArrayList 인스턴스를 생성할 때 초기 크기를 지정하지 않고 생성할 수 있도록 기본 생성자를 추가한다.
 //16) 배열 크기를 지정할 때 기본 크기 보다 큰 값이 되도록 생성자를 변경한다.
 //17) 배열의 기본 크기를 직접 숫자로 지정하지 말고 상수를 사용하여 지정한다.
+<<<<<<< HEAD
 //18) 배열의 크기를 늘릴 때 자바에서 제공하는 Arrays를 사용하여 처리한다.
+=======
+>>>>>>> 5e6872205c5736ee57fe101ee3c4689afd56c8a9
 public class MyArrayList01 {
 
   private static final int DEFAULT_CAPACITY = 5;
@@ -39,7 +42,11 @@ public class MyArrayList01 {
   }
 
   public MyArrayList01(int initialCapacity) {
+<<<<<<< HEAD
     if (initialCapacity < DEFAULT_CAPACITY) {
+=======
+    if (initialCapacity > DEFAULT_CAPACITY) {
+>>>>>>> 5e6872205c5736ee57fe101ee3c4689afd56c8a9
       elementData = new Object[DEFAULT_CAPACITY];
     } else {
       elementData = new Object[initialCapacity];

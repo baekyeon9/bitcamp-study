@@ -30,7 +30,11 @@ public class Exam0630 {
     Predicate<String> p3 = value -> value.isEmpty();
 
     // 4) 메서드 레퍼런스를 사용하여 기존 클래스의 메서드를 인터페이스 구현체로 사용하기
+    // 기존 코드 재 사용
+    // 의미 : predicate 인터페이스 구현체를 따로 만들지 않고(인터페이스 구현체 로서) String의 isEmpty()를 사용하겠다.
     Predicate<String> p4 = String::isEmpty;
+
+    // 추상메서드가 하나만 있는!!!!!! (중요)
   }
 
 }
