@@ -59,7 +59,11 @@ public class Exam0230 {
     list.add(m2);
     list.add(m3);
 
+<<<<<<< HEAD
     // ArrayList의 값을 꺼내주는 일을 할 객체를 얻는다.
+=======
+    // ArrayList값을 대신 꺼내주는 일을 할 객체를 얻는다.
+>>>>>>> b4ac28fcc13cb8c9edce03d78c3e59373de2a9f7
     Iterator<Member> iterator = list.iterator();
 
     // Iterator(데이터 꺼내주는 일을 하는 객체)에게 데이터를 달라고 요청한다.

@@ -59,8 +59,37 @@ public class Exam0240 {
     list.add(m2);
     list.add(m3);
 
+<<<<<<< HEAD
+    // forEach 메서드에게 넘길 객체
+    // => Consumer 규칙에 따라 만들어야 한다.
+    // => List에 보관된 객체를 반복문을 통해 꺼낼 때 마다 
+    //    Consumer 규칙에 따라 accept()를 호출할 것이다.
+
+    class MyConsumer implements Consumer<Member> {
+=======
     // arraylist에서 써내는방법
 
+<<<<<<< HEAD
+=======
+    list.forEach(new Consumer<Member>() {
+>>>>>>> 5e6872205c5736ee57fe101ee3c4689afd56c8a9
+      @Override
+      public void accept(Member t) {
+
+<<<<<<< HEAD
+
+    // 의미 :
+    // => 야 List! 너가 갖고 있는 목록에서 값을 1개 꺼낼 때 마다 
+    //    지금 내가 파라미터로 넘겨주는 객체 있지?
+    //    MyConsumer 객체말이이야!
+    //    이 객체의 accept()를 호출해 주렴.
+    list.forEach(new MyConsumer());
+=======
+      }
+    });
+
+
+>>>>>>> b4ac28fcc13cb8c9edce03d78c3e59373de2a9f7
     //    Iterator<Member> 목록에서값을꺼내주는자 = list.iterator();
     //    while (목록에서값을꺼내주는자.hasNext()) {
     //      Member m = 목록에서값을꺼내주는자.next();
@@ -98,6 +127,7 @@ public class Exam0240 {
 
 
 
+<<<<<<< HEAD
     class MyConsumer implements Consumer<Member> {
       @Override
       public void accept(Member m) {
@@ -116,6 +146,20 @@ public class Exam0240 {
     //    이 객체의 accept()를 호출해주렴.
 
     list.forEach(new MyConsumer());
+=======
+    //    class MyConsumer implements Consumer<Member> {
+    //      @Override
+    //      public void accept(Member m) {
+    //        // forEach() 에서 반복문을 돌릴 때
+    //        // Consumer 규칙에 따라 
+    //        // 각 항목에 대해 이 메서드를 호출한다.
+    //        System.out.printf("이름: %s, 나이: %d\n", m.name, m.age);
+    //      }
+    //    }
+    //
+    //    list.forEach(new MyConsumer());
+>>>>>>> 5e6872205c5736ee57fe101ee3c4689afd56c8a9
+>>>>>>> b4ac28fcc13cb8c9edce03d78c3e59373de2a9f7
   }
 }
 
