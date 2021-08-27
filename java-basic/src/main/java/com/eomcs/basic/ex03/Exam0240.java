@@ -61,14 +61,6 @@ public class Exam0240 {
 
     // arraylist에서 써내는방법
 
-    list.forEach(new Consumer<Member>() {
-      @Override
-      public void accept(Member t) {
-
-      }
-    });
-
-
     //    Iterator<Member> 목록에서값을꺼내주는자 = list.iterator();
     //    while (목록에서값을꺼내주는자.hasNext()) {
     //      Member m = 목록에서값을꺼내주는자.next();
@@ -106,17 +98,24 @@ public class Exam0240 {
 
 
 
-    //    class MyConsumer implements Consumer<Member> {
-    //      @Override
-    //      public void accept(Member m) {
-    //        // forEach() 에서 반복문을 돌릴 때
-    //        // Consumer 규칙에 따라 
-    //        // 각 항목에 대해 이 메서드를 호출한다.
-    //        System.out.printf("이름: %s, 나이: %d\n", m.name, m.age);
-    //      }
-    //    }
-    //
-    //    list.forEach(new MyConsumer());
+    class MyConsumer implements Consumer<Member> {
+      @Override
+      public void accept(Member m) {
+        // forEach() 에서 반복문을 돌릴 때
+        // Consumer 규칙에 따라 
+        // 각 항목에 대해 이 메서드를 호출한다.
+        System.out.printf("이름: %s, 나이: %d\n", m.name, m.age);
+      }
+    }
+
+    // 의미:
+    // => 야 List! 
+    //    너가 갖고 있는 목록에서 값을 한 개 꺼낼 때 마다 
+    //    지금 내가 파라미터로 넘겨주는 객체 있지?
+    //    MyConsumer 객체 말이야.
+    //    이 객체의 accept()를 호출해주렴.
+
+    list.forEach(new MyConsumer());
   }
 }
 
