@@ -42,7 +42,7 @@ public class ProjectHandler {
     System.out.println("[프로젝트 목록]");
 
     Project[] list = new Project[projectList.size()];
-    projectList.toArray(list);
+    list = projectList.toArray(list); // 혹시 파라미터로 넘겨준 배열이 작을 경우를 대비한다.
 
     for (Project project : list) {
       System.out.printf("%d, %s, %s, %s, %s, [%s]\n",

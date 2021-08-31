@@ -38,8 +38,7 @@ public class TaskHandler {
   public void list() {
     System.out.println("[작업 목록]");
 
-    Task[] list = new Task[taskList.size()];
-    taskList.toArray(list);
+    Task[] list = taskList.toArray(new Task[0]);
 
     for (Task task : list) {
       System.out.printf("%d, %s, %s, %s, %s\n",
@@ -147,9 +146,9 @@ public class TaskHandler {
   }
 
   private Task findByNo(int no) {
-    Object[] arr = taskList.toArray();
-    for (Object obj : arr) {
-      Task task = (Task) obj;
+    Task[] arr = new Task[taskList.size()];
+    taskList.toArray(arr);
+    for (Task task : arr) {
       if (task.getNo() == no) {
         return task;
       }
