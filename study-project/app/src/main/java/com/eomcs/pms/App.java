@@ -25,7 +25,7 @@ public class App {
   BoardHandler boardHandler = new BoardHandler(boardList);
   MemberHandler memberHandler = new MemberHandler(memberList);
   ProjectHandler projectHandler = new ProjectHandler(projectList, memberHandler);
-  TaskHandler taskHandler = new TaskHandler(taskList, memberHandler);
+  TaskHandler taskHandler = new TaskHandler(projectList, taskList, memberHandler);
   AuthHandler authHandler = new AuthHandler(memberList);
 
   public static void main(String[] args) {
