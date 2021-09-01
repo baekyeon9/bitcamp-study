@@ -8,6 +8,7 @@ import com.eomcs.menu.MenuGroup;
 import com.eomcs.pms.domain.Board;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
+<<<<<<< HEAD
 import com.eomcs.pms.handler.AuthLoginHandler;
 import com.eomcs.pms.handler.AuthLogoutHandler;
 import com.eomcs.pms.handler.AuthUserInfoHandler;
@@ -33,6 +34,14 @@ import com.eomcs.pms.handler.TaskDeleteHandler;
 import com.eomcs.pms.handler.TaskDetailHandler;
 import com.eomcs.pms.handler.TaskListHandler;
 import com.eomcs.pms.handler.TaskUpdateHandler;
+=======
+import com.eomcs.pms.domain.Task;
+import com.eomcs.pms.handler.AuthHandler;
+import com.eomcs.pms.handler.BoardHandler;
+import com.eomcs.pms.handler.MemberHandler;
+import com.eomcs.pms.handler.ProjectHandler;
+import com.eomcs.pms.handler.TaskHandler;
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
 import com.eomcs.util.Prompt;
 
 public class App {
@@ -40,6 +49,7 @@ public class App {
   List<Member> memberList = new LinkedList<>();
   List<Project> projectList = new ArrayList<>();
 
+<<<<<<< HEAD
   BoardAddHandler boardAddHandler = new BoardAddHandler(boardList);
   BoardListHandler boardListHandler = new BoardListHandler(boardList);
   BoardDetailHandler boardDetailHandler = new BoardDetailHandler(boardList);
@@ -70,6 +80,13 @@ public class App {
   AuthLoginHandler authLoginHandler = new AuthLoginHandler(memberList);
   AuthLogoutHandler authLogoutHandler = new AuthLogoutHandler();
   AuthUserInfoHandler authUserInfoHandler = new AuthUserInfoHandler();
+=======
+  BoardHandler boardHandler = new BoardHandler(boardList);
+  MemberHandler memberHandler = new MemberHandler(memberList);
+  ProjectHandler projectHandler = new ProjectHandler(projectList, memberHandler);
+  TaskHandler taskHandler = new TaskHandler(projectList, taskList, memberHandler);
+  AuthHandler authHandler = new AuthHandler(memberList);
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
 
   public static void main(String[] args) {
     App app = new App(); 
@@ -88,21 +105,33 @@ public class App {
     mainMenuGroup.add(new Menu("로그인", Menu.ENABLE_LOGOUT) {
       @Override
       public void execute() {
+<<<<<<< HEAD
         authLoginHandler.login(); 
+=======
+        authHandler.login(); 
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
       }
     });
 
     mainMenuGroup.add(new Menu("내정보", Menu.ENABLE_LOGIN) {
       @Override
       public void execute() {
+<<<<<<< HEAD
         authUserInfoHandler.displayLoginUser(); 
+=======
+        authHandler.displayLoginUser(); 
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
       }
     });
 
     mainMenuGroup.add(new Menu("로그아웃", Menu.ENABLE_LOGIN) {
       @Override
       public void execute() {
+<<<<<<< HEAD
         authLogoutHandler.logout(); 
+=======
+        authHandler.logout(); 
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
       }
     });
 
@@ -129,13 +158,21 @@ public class App {
       public void execute() {
         boardUpdateHandler.update(); 
       }});
+<<<<<<< HEAD
     boardMenu.add(new Menu("삭제", Menu.ENABLE_LOGIN) {
+=======
+    boardMenu.add(new Menu("변경", Menu.ENABLE_LOGIN) {
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
       @Override
       public void execute() {
         boardDeleteHandler.delete(); 
       }});
+<<<<<<< HEAD
 
     boardMenu.add(new Menu("검색", Menu.ENABLE_LOGIN) {
+=======
+    boardMenu.add(new Menu("삭제", Menu.ENABLE_LOGIN) {
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
       @Override
       public void execute() {
         boardSearchHandler.search(); 

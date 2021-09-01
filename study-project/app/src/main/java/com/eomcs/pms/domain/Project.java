@@ -1,7 +1,10 @@
 package com.eomcs.pms.domain;
 
 import java.sql.Date;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
 import java.util.List;
 
 public class Project {
@@ -12,7 +15,18 @@ public class Project {
   private Date endDate;
   private Member owner;
   private List<Member> members;
+<<<<<<< HEAD
   private List<Task> tasks = new ArrayList<>();
+=======
+  private List<Task> tasks;
+
+  @Override
+  public String toString() {
+    return "Project [no=" + no + ", title=" + title + ", content=" + content + ", startDate="
+        + startDate + ", endDate=" + endDate + ", owner=" + owner + ", members=" + members
+        + ", tasks=" + tasks + "]";
+  }
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
 
   @Override
   public String toString() {
@@ -68,6 +82,7 @@ public class Project {
   public void setTasks(List<Task> tasks) {
     this.tasks = tasks;
   }
+<<<<<<< HEAD
 
   public String getMemberNames() {
     if (this.members == null) {
@@ -92,4 +107,6 @@ public class Project {
     }
     return null;
   }
+=======
+>>>>>>> babef47592358aff5d34c678553708edfa05b332
 }
