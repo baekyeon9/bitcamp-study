@@ -1,27 +1,45 @@
 package com.eomcs.pms.handler;
 
 import java.util.List;
+import com.eomcs.menu.Menu;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.util.Prompt;
 
-public class AuthLoginHandler {
+public class AuthLoginHandler implements Command {
 
   List<Member> memberList;
 
+  static int userAccessLevel = 0x01; // 처음에는 로그 아웃된 상태이다.
   static Member loginUser;
-  public static Member getLoginUser() {
+  public static Member getLoginUser() { 
     return loginUser;
+  }
+
+  public static int getUserAccessLevel() {
+    return userAccessLevel;
   }
 
   public AuthLoginHandler(List<Member> memberList) {
     this.memberList = memberList;
   }
 
-  public void login() {
+  @Override
+  public void execute() {
     System.out.println("[로그인]");
 
     String email = Prompt.inputString("이메일? ");
     String password = Prompt.inputString("암호? ");
+
+    Member loginUser = null;
+
+    if (email.equals("root") && password.equals("0000")) {
+      Member root = new Member();
+      root.setName("관리자");
+      root.setEmail("admin@test.com");
+      loginUser = root;
+      userAccessLevel = Menu.ACCESS_ADMIN | Menu.ACCESS_GENERAL;
+      return;
+    } 
 
     Member member = findByEmailPassword(email, password);
 
@@ -30,6 +48,7 @@ public class AuthLoginHandler {
     } else {
       System.out.printf("%s님 환영합니다!\n", member.getName());
       loginUser = member;
+      userAccessLevel = Menu.ACCESS_GENERAL;
     }
   }
 

@@ -9,16 +9,6 @@ public class Task {
   private Member owner;
   private int status;
   private Project project;
-<<<<<<< HEAD
-=======
-
-
-  @Override
-  public String toString() {
-    return "Task [no=" + no + ", content=" + content + ", deadline=" + deadline + ", owner=" + owner
-        + ", status=" + status + ", project=" + project + "]";
-  }
->>>>>>> babef47592358aff5d34c678553708edfa05b332
 
   @Override
   public String toString() {
@@ -43,18 +33,6 @@ public class Task {
   public void setDeadline(Date deadline) {
     this.deadline = deadline;
   }
-<<<<<<< HEAD
-=======
-
-  public Member getOwner() {
-    return owner;
-  }
-
-  public void setOwner(Member owner) {
-    this.owner = owner;
-  }
-
->>>>>>> babef47592358aff5d34c678553708edfa05b332
   public int getStatus() {
     return status;
   }
@@ -67,7 +45,6 @@ public class Task {
   public void setProject(Project project) {
     this.project = project;
   }
-<<<<<<< HEAD
   public Member getOwner() {
     return owner;
   }
@@ -75,6 +52,4 @@ public class Task {
     this.owner = owner;
   }
 
-=======
->>>>>>> babef47592358aff5d34c678553708edfa05b332
 }
