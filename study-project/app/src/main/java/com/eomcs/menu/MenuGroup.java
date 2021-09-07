@@ -31,7 +31,6 @@ public class MenuGroup extends Menu {
   }
   static PrevMenu prevMenu = new PrevMenu();
 
-
   public MenuGroup(String title) {
     super(title);
   }
@@ -54,23 +53,17 @@ public class MenuGroup extends Menu {
     this.prevMenuTitle = prevMenuTitle;
   }
 
+  // MenuGroup이 포함하는 하위 Menu를 다룰 수 있도록 메서드를 정의한다.
   public void add(Menu child) {
-    childs.add(child);
+    childs.add(child); 
   }
 
   // 배열에 들어 있는 Menu 객체를 찾아 제거한다.
   public Menu remove(Menu child) {
-    for (int i = 0;)
-      if (index == -1) {
-        return null;
-      }
-    for (int i = index + 1; i < this.size; i++) {
-      this.childs[i - 1] = this.childs[i];
-    }
-    childs[--this.size] = null;
-    return child;
+    if (childs.remove(child)) 
+      return child;
+    return null;
   }
-
 
   @Override // 컴파일러에게 오버라이딩을 제대로 하는지 조사해 달라고 요구한다.
   public void execute() {
@@ -129,12 +122,12 @@ public class MenuGroup extends Menu {
   private List<Menu> getMenuList() {
     ArrayList<Menu> menuList = new ArrayList<>();
     for (Menu menu : childs) {
-      // 사용자가 해당 메뉴에 접근할 수 있는지 검사한다.
-      // 예) 메뉴의 접근 범위   : 0100 = 관리자만 접근 가능
-      //     사용자의 접근 수준 : 0101 = 관리자 및 일반 메뉴 접근 가능
-      if ((menu.accessScope & AuthLoginHandler.getUserAccessLevel()) > 0) {
+      // 사용자가 해당 메뉴에 접근 할 수 있는지 검사한다.
+      //    예) 메뉴의 접근 범위:   0100  = 관리자만 접근 가능   
+      //        사용자의 접근 수준: 0110  = 관리자 및 일반 메뉴 접근 가능
+      if ((menu.accessScope & AuthLoginHandler.getUserAccessLevel()) > 0 ) {
         menuList.add(menu);
-      }
+      } 
     }
     return menuList;
   }

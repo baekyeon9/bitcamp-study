@@ -3,6 +3,10 @@ package com.eomcs.pms;
 import static com.eomcs.menu.Menu.ACCESS_ADMIN;
 import static com.eomcs.menu.Menu.ACCESS_GENERAL;
 import static com.eomcs.menu.Menu.ACCESS_LOGOUT;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -41,8 +45,9 @@ import com.eomcs.pms.handler.TaskListHandler;
 import com.eomcs.pms.handler.TaskUpdateHandler;
 import com.eomcs.util.Prompt;
 
+
 public class App {
-  List<Board> boardList = new ArrayList<>();
+  //  List<Board> boardList = new ArrayList<>();
   List<Member> memberList = new LinkedList<>();
   List<Project> projectList = new ArrayList<>();
 
@@ -52,16 +57,15 @@ public class App {
   ProjectPrompt projectPrompt = new ProjectPrompt(projectList);
 
   class MenuItem extends Menu {
-
     String menuId;
 
     public MenuItem(String title, String menuId) {
-      super(title); 
+      super(title);
       this.menuId = menuId;
     }
 
     public MenuItem(String title, int accessScope, String menuId) {
-      super(title,accessScope);
+      super(title, accessScope);
       this.menuId = menuId;
     }
 
@@ -109,15 +113,48 @@ public class App {
   }
 
   void service() {
+    loadBoards();
+
     createMainMenu().execute();
     Prompt.close();
+
+    saveBoards();
+  }
+
+  @SuppressWarnings("unchecked")
+  private void loadBoards() {
+    try (ObjectInputStream in = new ObjectInputStream(
+        new FileInputStream("board.data3"))) {
+
+      boardList.addAll((List<Board>) in.readObject());
+
+      System.out.println("게시글 로딩 완료!");
+
+    } catch (Exception e) {
+      System.out.println("파일에서 게시글을 읽어 오는 중 오류 발생!");
+      e.printStackTrace();
+    }
+  }
+
+  private void saveBoards() {
+    try (ObjectOutputStream out = new ObjectOutputStream(
+        new FileOutputStream("board.data3"))) {
+
+      out.writeObject(boardList);
+
+      System.out.println("게시글 저장 완료!");
+
+    } catch (Exception e) {
+      System.out.println("게시글을 파일에 저장 중 오류 발생!");
+      e.printStackTrace();
+    }
   }
 
   Menu createMainMenu() {
     MenuGroup mainMenuGroup = new MenuGroup("메인");
     mainMenuGroup.setPrevMenuTitle("종료");
 
-    mainMenuGroup.add(new MenuItem("로그인", ACCESS_LOGOUT, "/auth/login"));
+    mainMenuGroup.add(new MenuItem("로그인", ACCESS_LOGOUT , "/auth/login"));
     mainMenuGroup.add(new MenuItem("내정보", ACCESS_GENERAL, "/auth/userinfo"));
     mainMenuGroup.add(new MenuItem("로그아웃", ACCESS_GENERAL, "/auth/logout"));
 
@@ -175,10 +212,9 @@ public class App {
     MenuGroup adminMenu = new MenuGroup("관리자", ACCESS_ADMIN);
     adminMenu.add(new MenuItem("회원 등록", "/member/add"));
     adminMenu.add(new MenuItem("프로젝트 등록", "/project/add"));
-    adminMenu.add(new MenuItem("상세보기", "/task/add"));
-    adminMenu.add(new MenuItem("변경", "/board/add"));
+    adminMenu.add(new MenuItem("작업 등록", "/task/add"));
+    adminMenu.add(new MenuItem("게시글 등록", "/board/add"));
     return adminMenu;
-
   }
 }
 

@@ -2,7 +2,8 @@ package com.eomcs.pms.domain;
 
 import java.sql.Date;
 
-public class Board {
+@SuppressWarnings("serial")
+public class Board implements java.io.Serializable{
   private int no;
   private String title;
   private String content;

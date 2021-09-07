@@ -9,12 +9,12 @@ public class AuthLoginHandler implements Command {
 
   List<Member> memberList;
 
-  static int userAccessLevel = 0x01; // 처음에는 로그 아웃된 상태이다.
   static Member loginUser;
-  public static Member getLoginUser() { 
+  static int userAccessLevel = Menu.ACCESS_LOGOUT; // 기본은 로그아웃 된 상태이다.
+
+  public static Member getLoginUser() {
     return loginUser;
   }
-
   public static int getUserAccessLevel() {
     return userAccessLevel;
   }
@@ -29,8 +29,6 @@ public class AuthLoginHandler implements Command {
 
     String email = Prompt.inputString("이메일? ");
     String password = Prompt.inputString("암호? ");
-
-    Member loginUser = null;
 
     if (email.equals("root") && password.equals("0000")) {
       Member root = new Member();
