@@ -47,7 +47,7 @@ import com.eomcs.util.Prompt;
 
 
 public class App {
-  List<Board> boardList = new ArrayList<>();
+  //  List<Board> boardList = new ArrayList<>();
   List<Member> memberList = new LinkedList<>();
   List<Project> projectList = new ArrayList<>();
 
@@ -113,16 +113,24 @@ public class App {
   }
 
   void service() {
+<<<<<<< HEAD
     loadMembers();
     loadBoards();
     loadProjects();
+=======
+    loadBoards();
+>>>>>>> c992366e7de1f7407256538aa4ef1b2db08530c1
 
     createMainMenu().execute();
     Prompt.close();
 
+<<<<<<< HEAD
     saveMembers();
     saveBoards();
     saveProjects();
+=======
+    saveBoards();
+>>>>>>> c992366e7de1f7407256538aa4ef1b2db08530c1
   }
 
   @SuppressWarnings("unchecked")
@@ -132,6 +140,7 @@ public class App {
 
       boardList.addAll((List<Board>) in.readObject());
 
+<<<<<<< HEAD
       System.out.println("게시글 데이터 로딩 완료!");
 
     } catch (Exception e) {
@@ -150,10 +159,17 @@ public class App {
 
     } catch (Exception e) {
       System.out.println("게시글 데이터를 파일에 저장 중 오류 발생!");
+=======
+      System.out.println("게시글 로딩 완료!");
+
+    } catch (Exception e) {
+      System.out.println("파일에서 게시글을 읽어 오는 중 오류 발생!");
+>>>>>>> c992366e7de1f7407256538aa4ef1b2db08530c1
       e.printStackTrace();
     }
   }
 
+<<<<<<< HEAD
   @SuppressWarnings("unchecked")
   private void loadMembers() {
     try (ObjectInputStream in = new ObjectInputStream(
@@ -208,6 +224,18 @@ public class App {
 
     } catch (Exception e) {
       System.out.println("프로젝트 데이터를 파일에 저장 중 오류 발생!");
+=======
+  private void saveBoards() {
+    try (ObjectOutputStream out = new ObjectOutputStream(
+        new FileOutputStream("board.data3"))) {
+
+      out.writeObject(boardList);
+
+      System.out.println("게시글 저장 완료!");
+
+    } catch (Exception e) {
+      System.out.println("게시글을 파일에 저장 중 오류 발생!");
+>>>>>>> c992366e7de1f7407256538aa4ef1b2db08530c1
       e.printStackTrace();
     }
   }
@@ -225,10 +253,17 @@ public class App {
     mainMenuGroup.add(createProjectMenu());
     mainMenuGroup.add(createTaskMenu());
     mainMenuGroup.add(createAdminMenu());
+<<<<<<< HEAD
 
     return mainMenuGroup;
   }
 
+=======
+
+    return mainMenuGroup;
+  }
+
+>>>>>>> c992366e7de1f7407256538aa4ef1b2db08530c1
   private Menu createBoardMenu() {
     MenuGroup boardMenu = new MenuGroup("게시판");
     boardMenu.add(new MenuItem("등록", ACCESS_GENERAL, "/board/add"));

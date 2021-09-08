@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @SuppressWarnings("serial")
+<<<<<<< HEAD
 public class Board implements Serializable {
 
+=======
+public class Board implements java.io.Serializable{
+>>>>>>> c992366e7de1f7407256538aa4ef1b2db08530c1
   private int no;
   private String title;
   private String content;
