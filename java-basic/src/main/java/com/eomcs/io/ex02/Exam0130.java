@@ -13,7 +13,7 @@ public class Exam0130 {
     /*
       while (true) {
         b = in.read();
-        if (b == -1) // 파일의 끝에 도달하면(더이상 읽을 데이타가 없으면) -1을 리턴한다.
+        if (b == -1) // 파일의 끝에 도달하면 -1을 리턴한다.
           break;
         System.out.printf("%02x ", b);
       }

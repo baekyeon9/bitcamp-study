@@ -30,8 +30,8 @@ public class Exam0110 {
     out.write(102);   // 0x00000066
     out.write(127);   // 0x0000007f
     out.write(255);   // 0x000000ff
-    out.write('A'); // 0x0041
-    out.write('가'); // 0xac00
+    out.write('A');   // 0x0041
+    out.write('가');  // 0xac00
 
     // 3) 출력 도구를 닫는다.
     // - OS에서 관리하는 자원 중에서 한정된 개수를 갖는 자원에 대해
@@ -57,7 +57,7 @@ public class Exam0110 {
     // 자원 부족 문제가 발생한다.
     // 결론!
     // - 간단한 코드를 작성하더라도 AutoCloseable 인터페이스를 구현한 클래스를 사용할 때는
-    //   사용하고 난 후 자원을 해제시키는 close()를 반드시 호출하라.
+    //   사용하고 난 후 자원을 해제시는 close()를 반드시 호출하라.
     //
     System.out.println("데이터 출력 완료!");
 

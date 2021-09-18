@@ -31,8 +31,8 @@ public class Exam0510 {
     //int[] arr3 = new int[2147483647]; // 실행 오류 => VM의 배열 크기 제한을 초과
     // Exception in thread "main" java.lang.OutOfMemoryError: Requested array size exceeds VM limit
 
-    //int[] arr3 = new int[2147483645]; // OK!
-    int[] arr3 = new int[Integer.MAX_VALUE - 2]; // OK!
+    int[] arr3 = new int[2147483645]; // OK!
+    //int[] arr3 = new int[Integer.MAX_VALUE - 2]; // OK!
 
     // 실행 오류 발생!
     // => Exception in thread "main" java.lang.OutOfMemoryError: Java heap space

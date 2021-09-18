@@ -7,7 +7,7 @@ public class Exam0111 {
     // 생성자를 호출하여 문자열 인스턴스를 초기화시킨다.
 
     // => 문자열 리터럴을 사용하여 String 인스턴스를 초기화시키기.
-    String s1 = new String("Hello"); // String(스트링 리터럴) 생성자를 호출하여 인스턴스 초기화
+    String s1 = new String("Hello"); // String(스트링 리터럴) 생성자를 호출하여 인스턴스 초기화 
 
     // => char[] 을 사용하여 String 인스턴스 초기화시키기.
     char[] chars = new char[] {'H', 'e', 'l', 'l', 'o'};

@@ -19,6 +19,7 @@ public class Exam0512 {
     for (byte b : bytes) {
       System.out.printf("%02x ", b);
     }
+    System.out.println();
 
     // 바이트 배열 전체를 그대로 출력한다.
     FileOutputStream out = new FileOutputStream("temp/utf16be.txt");

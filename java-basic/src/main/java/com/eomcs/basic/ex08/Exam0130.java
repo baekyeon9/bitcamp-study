@@ -67,7 +67,7 @@ public class Exam0130 {
     System.out.println("-----------------------------------");
 
     // equals()의 리턴 값이 true 이더라도
-    // hashCode()의 리턴 값이 다르면 
+    // hashCode()의 리턴 값이 다르면
     // 다른 key로 간주한다.
     System.out.println(map.get(k6));
   }

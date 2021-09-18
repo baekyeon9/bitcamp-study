@@ -1,4 +1,4 @@
-// 예외 처리 문법을 적용하기 전 - 리턴 값으로 오류를 알릴 때의 문제를 극복
+ㅂ// 예외 처리 문법을 적용하기 전 - 리턴 값으로 오류를 알릴 때의 문제를 극복
 package com.eomcs.exception.ex1;
 
 public class Exam0131 {

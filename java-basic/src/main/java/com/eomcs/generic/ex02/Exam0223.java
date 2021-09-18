@@ -12,11 +12,11 @@ public class Exam0223 {
   /*
    *   Object
    *     |
-   *     A /승용차
+   *     A
    *    / \
-   *   B1 B2 / 세단 트럭
+   *   B1 B2
    *   |
-   *   C/ 티코
+   *   C
    */
 
   public static void main(String[] args) {
@@ -36,11 +36,11 @@ public class Exam0223 {
     //  => 그런데 m1()에서는 B1만 들어있을 것이라 확신하고, ArrayList를 사용할 것이다.
     //  => 그래서 m1()을 실행하는 중에 get()을 호출할 때 형변환 문제가 발생한다.
 
-    m1(new ArrayList<Object>()); // 컴파일 오류! 승용차보다 더 큰 범위 안돼! (자동차, 오토바이)
-    m1(new ArrayList<A>()); // 컴파일 오류! 승용차보다 더 큰 범위 안돼!
-    m1(new ArrayList<B1>()); // OK! 승용차를 담는것만 줘라!
-    m1(new ArrayList<B2>()); // 컴파일 오류! 승용차 달랬는데 트럭??
-    m1(new ArrayList<C>()); // 컴파일 오류! 티코도 당연 안됨~
+    //    m1(new ArrayList<Object>()); // 컴파일 오류!
+    //    m1(new ArrayList<A>()); // 컴파일 오류!
+    m1(new ArrayList<B1>()); // OK!
+    //    m1(new ArrayList<B2>()); // 컴파일 오류!
+    //    m1(new ArrayList<C>()); // 컴파일 오류!
   }
 
   static void m1(ArrayList<B1> list) {

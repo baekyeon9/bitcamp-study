@@ -11,7 +11,7 @@ class D22 {
       //      int v1 = 100;
 
       void f() {
-        int v1 = 1000;
+        //        int v1 = 1000;
         System.out.printf("v1 = %d\n", v1);
         // this 를 생략하면 다음 순서로 변수를 찾는다.
         // 1) 로컬 변수

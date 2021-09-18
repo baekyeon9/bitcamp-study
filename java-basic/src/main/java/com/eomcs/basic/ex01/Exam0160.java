@@ -13,7 +13,7 @@ public class Exam0160 {
     Class classInfo = obj1.getClass();
 
     // 클래스 정보로부터 다양한 값을 꺼낼 수 있다. 
-    System.out.println(classInfo.getName()); // 패키지명 + 클래스명 + 바깥 클래스명
+    System.out.println(classInfo.getName()); // 패키지명 + 바깥 클래스명 + 클래스명
     System.out.println(classInfo.getSimpleName()); // 클래스명
   }
 }

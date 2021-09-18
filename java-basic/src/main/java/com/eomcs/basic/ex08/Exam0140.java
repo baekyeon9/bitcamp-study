@@ -60,7 +60,8 @@ public class Exam0140 {
     System.out.println("-----------------------------------");
 
     // hashCode()의 리턴 값이 같더라도
-    // equals()로 비교한 값이 false이면 다른key로 간주한다.
+    // equals()로 비교한 값이 false이면
+    // 다른 key로 간주한다.
     System.out.println(map.get(k6));
   }
 

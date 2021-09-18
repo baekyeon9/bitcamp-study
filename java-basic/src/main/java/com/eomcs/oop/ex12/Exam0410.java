@@ -7,9 +7,24 @@ public class Exam0410 {
     double compute(int money);
   }
 
+  // 팩토리 메서드
+  // => Interest 구현체를 생성하여 리턴하는 메서드
+  // 
   static Interest getInterest(final double rate) {
     // 로컬 클래스로 인터페이스 구현한 후 객체 리턴하기
-    return money -> money + (money * rate / 100);
+    class InterestImpl implements Interest {
+      double rate;
+
+      public InterestImpl(double rate) {
+        this.rate = rate;
+      }
+
+      @Override
+      public double compute(int money) {
+        return money + (money * rate / 100);
+      }
+    }
+    return new InterestImpl(rate);
   }
 
   public static void main(String[] args) {

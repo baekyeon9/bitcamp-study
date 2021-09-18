@@ -46,10 +46,9 @@ public class Exam0340 {
     Member v4 = new Member("안중근", 20);
     Member v5 = new Member("유관순", 16);
 
-    System.out.printf("v3 == v5: %b\n", v3 == v5); // 인스턴스는 달라도,
+    System.out.printf("v3 == v5: %b\n", v3 == v5);
     System.out.printf("equals(): %b\n", v3.equals(v5));
     System.out.printf("hashCode(): %d, %d\n", v3.hashCode(), v5.hashCode());
-    // 해시코드가 같기 때문에 중복 저장되지 않는다
 
     HashSet<Member> set = new HashSet<>();
     set.add(v1);

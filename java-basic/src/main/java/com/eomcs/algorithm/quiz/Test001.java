@@ -10,7 +10,7 @@ package com.eomcs.algorithm.quiz;
 //한 줄에 버그가 있다. 고쳐라!
 public class Test001 {
 
-  static int countEvenNumber(int value) {
+  static int countEventNumber(int value) {
     int result = 0;
     int n = value;
     while(n != 0) {
@@ -21,9 +21,9 @@ public class Test001 {
     }
     return result;
   }
-
+  
   public static void main(String[] args) {
-    System.out.println(countEvenNumber(1238694636));
+    System.out.println(countEventNumber(1238694636));
 
   }
 

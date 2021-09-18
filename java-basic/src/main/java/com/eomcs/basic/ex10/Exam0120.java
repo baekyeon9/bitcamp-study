@@ -5,7 +5,8 @@ public class Exam0120 {
     long millis = System.currentTimeMillis();
     System.out.println(millis);
 
-    java.sql.Date d = new java.sql.Date(millis);
+    java.sql.Date d = new java.sql.Date(millis); //설계도
     System.out.println(d.toString());
   }
+
 }

@@ -1,4 +1,4 @@
-// Queue 구현과 사용
+// Queue 구현과 사용 : for(:)
 package com.eomcs.basic.ex06;
 
 import java.util.concurrent.ArrayBlockingQueue;
@@ -22,6 +22,7 @@ public class Exam0120 {
     for (String s : queue) {
       System.out.println(s);
     }
+
 
   }
 }

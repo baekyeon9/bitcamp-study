@@ -12,8 +12,8 @@ public class Test004 {
 
     int result = 0;
 
-    for (int i = 0; i < sequence.length; i++) {
-      for (int j = i; j < sequence.length; j++) {
+    for (int i = 0; i < sequence.length - 1; i++) {
+      for (int j = i + 1; j < sequence.length; j++) {
         if (sequence[i] % sequence[j] == 0 || sequence[j] % sequence[i] == 0) {
           result++;
         }

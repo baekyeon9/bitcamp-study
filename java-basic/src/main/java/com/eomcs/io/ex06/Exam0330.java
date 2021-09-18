@@ -25,6 +25,7 @@ public class Exam0330 {
 
     System.out.println(endTime - startTime);
     System.out.println(count);
+
     in.close();
     out.close();
   }

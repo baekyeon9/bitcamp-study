@@ -15,8 +15,7 @@ public class Exam0110 {
     // echo() 리턴 타입이 Object이기 때문에 String 레퍼런스로 바로 받을 수 없다.
     // => 해결책? 형변환 해야 한다.
     //
-    Object obj = echo(new String ("Hello")); // ok
-    // String obj1 = echo(new String("Hello")); // 컴파일 오류!
+    //    String obj1 = echo(new String("Hello")); // 컴파일 오류!
     String obj2 = (String) echo(new String("Hello"));
 
     // 잘못된 형변환은 컴파일러는 속일 수 있을 지라도, runtime 에서는 오류를 발생시킨다.
@@ -24,10 +23,7 @@ public class Exam0110 {
 
     Date obj4 = (Date) echo(new Date());
 
-    Calendar obj5 = (Calendar) echo(Calendar.getInstance()); 
-    // 캡슐화 - 객체 생성 과정이 복잡하여 메서드 안에 감춰둠
-
+    Calendar obj5 = (Calendar) echo(Calendar.getInstance());
   }
 
 }
-

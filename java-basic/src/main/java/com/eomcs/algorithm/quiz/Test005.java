@@ -12,7 +12,7 @@ package com.eomcs.algorithm.quiz;
 public class Test005 {
 
   static int countWaysToChangeDigit(int value) {
-    int answer = 1;  
+    int answer = 0;  
     while (value > 0) {    
       answer *= 9 - value % 10;
       value /= 10;
@@ -21,7 +21,7 @@ public class Test005 {
   }
 
 
-
+  
   public static void main(String[] args) {
     System.out.println(countWaysToChangeDigit(10));
 

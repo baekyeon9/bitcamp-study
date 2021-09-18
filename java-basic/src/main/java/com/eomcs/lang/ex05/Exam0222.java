@@ -6,7 +6,6 @@ public class Exam0222 {
     float f1 = 12.321f;
     float f2 = 1.1f;
     System.out.println((f1 + f2) == 13.421f);
-    System.out.println(Math.abs((f1 + f2) - 13.421f) <= Float.POSITIVE_INFINITY);
     System.out.println(f1);
     System.out.println(f2);
     System.out.println(f1 + f2);
@@ -70,9 +69,9 @@ public class Exam0222 {
     //    1.10101101011110001101010
     //
     // => 0 10000010 10101101011110001101010
-    //       
+    //         
 
-
+    System.out.println(Math.abs((f1 + f2) == 13.421f) <= Float.POSITIVE_INFINITY);
 
   }
 }

@@ -2,7 +2,6 @@
 package com.eomcs.io.ex01;
 
 import java.io.File;
-import java.io.FileFilter;
 
 public class Exam0740 {
 
@@ -11,24 +10,26 @@ public class Exam0740 {
     File dir = new File("bin/main");
     System.out.println(dir.getCanonicalPath());
 
-    printClasses(dir);
+    printClasses(dir, "");
   }
 
-  static void printClasss(File dir) {
+  static void printClasses(File dir, String packageName) {
 
-    File[] f = dir.listFiles(new FileFilter() {
-      @Override
-      public boolean accept(File pathname) {
-        return pathName.isDirectory() || (pathname.isFile() && pathname.getName().endsWith(".class"));
-      }
-    });
-
-    for (File file : f) {
-      if (file.isDirectory()) {
-
-      }
+    File[] files = dir.listFiles(
+        f -> f.isDirectory() || (f.isFile() && f.getName().endsWith(".class")));
+    if (packageName.length() > 0) {
+      packageName += ".";
     }
 
-  }
+    for (File f : files) {
+      if (f.isDirectory()) {
+        printClasses(f, packageName + f.getName());
 
+      } else {
+        System.out.println(packageName + f.getName().replace(".class", ""));
+      }
+    }
+  }
 }
+
+
