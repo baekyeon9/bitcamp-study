@@ -9,7 +9,6 @@ import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import com.eomcs.context.ApplicationContextListener;
@@ -24,13 +23,15 @@ import com.google.gson.reflect.TypeToken;
 // 
 public class FileListener implements ApplicationContextListener {
 
-  List<Board> boardList = new ArrayList<>();
-  List<Member> memberList = new LinkedList<>();
-  List<Project> projectList = new ArrayList<>();
-
-
   @Override
   public void contextInitialized(Map<String,Object> params) {
+
+    @SuppressWarnings("unchecked")
+    List<Board> boardList = (List<Board>) params.get("boardList");
+    @SuppressWarnings("unchecked")
+    List<Member> memberList = (List<Member>) params.get("memberList");
+    List<Project> projectList = new ArrayList<>();
+
     // 애플리케이션을 시작할 때 파일에서 데이터를 읽어온다.
     loadObjects("member.json", memberList, Member.class);
     loadObjects("project.json", projectList, Project.class);
