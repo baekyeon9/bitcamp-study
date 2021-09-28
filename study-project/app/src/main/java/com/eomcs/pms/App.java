@@ -147,7 +147,6 @@ public class App {
     params.put("memberList", memberList);
     params.put("projectList", projectList);
 
-
     for (ApplicationContextListener listener : listeners) {
       listener.contextInitialized(params);
     }
@@ -158,6 +157,7 @@ public class App {
     params.put("boardList", boardList);
     params.put("memberList", memberList);
     params.put("projectList", projectList);
+
     for (ApplicationContextListener listener : listeners) {
       listener.contextDestroyed(params);
     }
@@ -172,7 +172,6 @@ public class App {
 
     notifyOnApplicationEnded();
   }
-
 
 
   Menu createMainMenu() {

@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -18,36 +17,40 @@ import com.eomcs.pms.domain.Project;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-// 애플리케이션이 시작하거나 종료할 때 보고를 받는 객체
-// => ApplicationContextListener 규칙에 따라 클래스를 정의한다.
-// 
+// 애플리케이션 데이터를 파일로 저장하거나 로딩하는 일을 한다.
+// => 애플리케이션의 상태가 시작 또는 종료일 때
+//
 public class FileListener implements ApplicationContextListener {
 
+  @SuppressWarnings("unchecked")
   @Override
   public void contextInitialized(Map<String,Object> params) {
 
-    @SuppressWarnings("unchecked")
     List<Board> boardList = (List<Board>) params.get("boardList");
-    @SuppressWarnings("unchecked")
     List<Member> memberList = (List<Member>) params.get("memberList");
-    List<Project> projectList = new ArrayList<>();
+    List<Project> projectList = (List<Project>) params.get("projectList");
 
-    // 애플리케이션을 시작할 때 파일에서 데이터를 읽어온다.
+    // 애플리케이션을 시작할 때 파일에서 데이터를 읽어 온다.
+    loadObjects("board.json", boardList, Board.class);
     loadObjects("member.json", memberList, Member.class);
     loadObjects("project.json", projectList, Project.class);
-    loadObjects("board.json", boardList, Board.class);
   }
 
-
+  @SuppressWarnings("unchecked")
   @Override
   public void contextDestroyed(Map<String,Object> params) {
+
+    List<Board> boardList = (List<Board>) params.get("boardList");
+    List<Member> memberList = (List<Member>) params.get("memberList");
+    List<Project> projectList = (List<Project>) params.get("projectList");
+
     // 애플리케이션을 종료할 때 데이터를 파일로 저장한다.
     saveObjects("board.json", boardList);
     saveObjects("member.json", memberList);
     saveObjects("project.json", projectList);
-
   }
 
+  // JSON 형식으로 저장된 데이터를 읽어서 객체로 만든다.
   private <E> void loadObjects(
       String filepath, // 데이터를 읽어 올 파일 경로 
       List<E> list, // 로딩한 데이터를 객체로 만든 후 저장할 목록 
@@ -77,7 +80,7 @@ public class FileListener implements ApplicationContextListener {
     }
   }
 
-
+  // 객체를 JSON 형식으로 저장한다.
   private void saveObjects(String filepath, List<?> list) {
     try (PrintWriter out = new PrintWriter(
         new BufferedWriter(
@@ -92,11 +95,4 @@ public class FileListener implements ApplicationContextListener {
       e.printStackTrace();
     }
   }
-
 }
-
-
-
-
-
-
