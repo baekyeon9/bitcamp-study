@@ -1,18 +1,19 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
-import java.util.List;
 import com.eomcs.pms.domain.Board;
 import com.eomcs.util.Prompt;
 
-public class BoardAddHandler extends AbstractBoardHandler {
+public class BoardAddHandler implements Command {
 
-  public BoardAddHandler(List<Board> boardList) {
-    super(boardList);
+  BoardDao boardDao;
+
+  public BoardAddHandler(BoardDao boardDao) {
+    this.boardDao = boardDao;
   }
 
   @Override
-  public void execute(CommandRequest request) {
+  public void execute(CommandRequest request) throws Exception {
     System.out.println("[새 게시글]");
 
     Board board = new Board();
@@ -24,7 +25,9 @@ public class BoardAddHandler extends AbstractBoardHandler {
     board.setWriter(AuthLoginHandler.getLoginUser());
     board.setRegisteredDate(new Date(System.currentTimeMillis()));
 
-    boardList.add(board);
+    boardDao.insert(board);
+
+
   }
 }
 

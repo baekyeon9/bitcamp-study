@@ -46,32 +46,35 @@ public class TaskDetailHandler implements Command {
       return;
     }
 
-    if (!loginUser.getEmail().equals("root@test.com"))) {
-    )
+    if (!loginUser.getEmail().equals("root@test.com")) {
+      if (project.getOwner().getNo() != loginUser.getNo()) {
+        return;
+      }
+    }
 
+    request.setAttribute("project", project);
+    request.setAttribute("task", task);
 
-request.setAttribute("project", project);
-request.setAttribute("task", task);
-
-while (true) {
-  String input = Prompt.inputString("변경(U), 삭제(D), 이전(0)>");
-  switch (input) {
-    case "U":
-    case "u":
-      request.getRequestDispatcher("/task/update").forward(request);
-      return;
-    case "D":
-    case "d":
-      request.getRequestDispatcher("/task/delete").forward(request);
-      return;
-    case "0":
-      return;
-    default:
-      System.out.println("명령어가 올바르지 않습니다!");
-  }
-}
+    while (true) {
+      String input = Prompt.inputString("변경(U), 삭제(D), 이전(0)>");
+      switch (input) {
+        case "U":
+        case "u":
+          request.getRequestDispatcher("/task/update").forward(request);
+          return;
+        case "D":
+        case "d":
+          request.getRequestDispatcher("/task/delete").forward(request);
+          return;
+        case "0":
+          return;
+        default:
+          System.out.println("명령어가 올바르지 않습니다!");
+      }
     }
   }
+}
+
 
 
 
