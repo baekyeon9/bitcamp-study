@@ -7,7 +7,7 @@ import com.eomcs.util.Prompt;
 
 public class AuthLoginHandler implements Command {
 
-  MemberDao memberDao; 
+  MemberDao memberDao;
 
   static Member loginUser;
   static int userAccessLevel = Menu.ACCESS_LOGOUT; // 기본은 로그아웃 된 상태이다.
