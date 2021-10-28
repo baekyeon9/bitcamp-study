@@ -19,7 +19,7 @@ war {
 }
 
 // 자바 소스를 컴파일 할 때 적용할 옵션
-tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile) {
     // $javac -encoding UTF-8 ...
     options.encoding = 'UTF-8';
     
@@ -44,6 +44,9 @@ repositories {
 dependencies {
   // 서블릿 API
   implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
+  // JSP API
+  implementation 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.3'
 
   implementation 'com.google.code.gson:gson:2.8.8'
 
