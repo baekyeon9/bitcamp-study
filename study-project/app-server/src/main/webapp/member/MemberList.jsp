@@ -10,17 +10,17 @@
   
   <script src="../node_modules/@popperjs/core/dist/umd/popper.js"></script>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
+  
   <style>
-   .container {
-    xborder 1px
-    
+    .container {
+        xborder: 1px solid red;
+        width: 640px;
     }
   </style>
 </head>
 <body>
 <div class="container">
-<h1>회원 목록(MVC + EL + JSTL+ BootStrap)</h1>
+<h1>회원 목록(MVC + EL + JSTL + Bootstrap)</h1>
 <a href='form' class="btn btn-outline-primary btn-sm">새회원</a><br>
 <table class="table table-hover">
 <thead>
