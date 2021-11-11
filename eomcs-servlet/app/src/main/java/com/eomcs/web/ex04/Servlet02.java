@@ -36,7 +36,7 @@ public class Servlet02 extends GenericServlet {
     // 클라이언트가 보낸 한글을 읽을 때 깨지는 문제 해결?
     // => 다음 코드의 주석을 풀고 테스트 해보라!
     //    정상적으로 잘 출력될 것이다.
-    // req.setCharacterEncoding("UTF-8");
+    req.setCharacterEncoding("UTF-8");
     // => 원리
     //    getParameter()를 최초로 호출하기 전에 먼저
     //    클라이언트 보낸 데이터의 인코딩 형식이 어떤 문자표로 되어 있는지 알려줘야 한다.
@@ -167,6 +167,12 @@ public class Servlet02 extends GenericServlet {
 //         => AB가각
 //
 // GET 요청 vs POST 요청
+// 0) 데이터 전송 방식
+//  => GET
+//    - request uri(URL 주소)에 데이터를 포함한다.
+//      예) 
+//=> POST
+//    - message body에 데이터를 포함한다.
 // 1) 전송 데이터 용량
 // => GET
 //    - 대부분의 웹서버가 request-line과 헤더의 크기를 8KB로 제한하고 있다.
