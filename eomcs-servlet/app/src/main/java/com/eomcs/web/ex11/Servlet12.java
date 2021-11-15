@@ -18,6 +18,10 @@ public class Servlet12 extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
+    request.setCharacterEncoding("UTF-8");
+    // post로 넘어온 데이터는 먼저 타입을 알아낸 후, 
+
+
     // 세션을 준비한다.
     HttpSession session = request.getSession();
 
